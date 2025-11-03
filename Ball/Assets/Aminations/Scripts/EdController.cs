@@ -13,16 +13,17 @@ public class EdController : MonoBehaviour
     Vector2 moveInput;
     Vector3 velocity;
     private bool isJumping;
+    private bool isRunning;
 
     private void Start()
     {
         animator = GetComponent<Animator>();
         controller = GetComponent<CharacterController>();
+        animator.SetBool("isWaving", false);
     }
     public void OnMove(InputAction.CallbackContext context)
     {
         moveInput = context.ReadValue<Vector2>();
-        Debug.Log($"Move Input: {moveInput}");
     }
 
     public void OnJump(InputAction.CallbackContext context)
@@ -39,6 +40,20 @@ public class EdController : MonoBehaviour
             animator.SetFloat("JumpVelocity", 1f);
         }
     }
+    /*public void OnRun(InputAction.CallbackContext context)  //Character runs and waves at the same time
+    {
+        if (context.performed)
+            isRunning = true;
+        else if (context.canceled)
+            isRunning = false;
+    }*/
+    public void OnWave(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+            animator.SetBool("isWaving", true);
+        else if (context.canceled)
+            animator.SetBool("isWaving", false);
+    }
 
     void Update()
     {
@@ -54,6 +69,15 @@ public class EdController : MonoBehaviour
         //Movement logic
         Vector3 move = transform.right * moveInput.x + transform.forward * moveInput.y;
         controller.Move(move * speed * Time.deltaTime);
+
+        bool isMoving = moveInput != Vector2.zero;
+        animator.SetBool("isWalking", isMoving);
+        //animator.SetBool("isWaving", isRunning && isMoving);
+
+        if (Keyboard.current.eKey.isPressed)
+            animator.SetBool("isWaving", true);
+        else
+            animator.SetBool("isWaving", false);
 
         //Jump logic
         velocity.y += gravity * Time.deltaTime;
