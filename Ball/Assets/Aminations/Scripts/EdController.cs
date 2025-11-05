@@ -1,5 +1,9 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Animations.Rigging;
 using UnityEngine.InputSystem;
+using static UnityEngine.GraphicsBuffer;
 
 public class EdController : MonoBehaviour
 {
@@ -14,6 +18,13 @@ public class EdController : MonoBehaviour
     Vector3 velocity;
     private bool isJumping;
     private bool isRunning;
+
+    [SerializeField] private Rig leftHandRig;
+    [SerializeField] private Transform ikTarget;
+    [SerializeField] private Transform objectToPick;
+    [SerializeField] private Transform handBone;
+
+    private bool isPickingUp = false;
 
     private void Start()
     {
@@ -53,6 +64,14 @@ public class EdController : MonoBehaviour
             animator.SetBool("isWaving", true);
         else if (context.canceled)
             animator.SetBool("isWaving", false);
+    }
+
+    public void OnPickUp(InputAction.CallbackContext context)
+    {
+        if (context.performed && !isPickingUp)
+        {
+            //StartCoroutine(MoveHandToObject());
+        }
     }
 
     void Update()
@@ -96,4 +115,5 @@ public class EdController : MonoBehaviour
             animator.SetFloat("JumpVelocity", normalizedVelocity);
         }
     }
+    
 }
