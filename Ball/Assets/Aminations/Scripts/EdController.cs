@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,21 +10,18 @@ public class EdController : MonoBehaviour
 {
     Animator animator;
     CharacterController controller;
-
-    private float speed = 2f;
-    private float jumpHeight = 3f;
-    private float gravity = -9.81f;
-
-    Vector2 moveInput;
-    Vector3 velocity;
-    private bool isJumping;
-    private bool isRunning;
-
     [SerializeField] private Rig leftHandRig;
     [SerializeField] private Transform ikTarget;
     [SerializeField] private Transform objectToPick;
     [SerializeField] private Transform handBone;
 
+    private float speed = 2f;
+    private float jumpHeight = 4f;
+    private float gravity = -9.81f;
+
+    Vector2 moveInput;
+    Vector3 velocity;
+    private bool isJumping;
     private bool isPickingUp = false;
 
     private void Start()
@@ -39,25 +37,16 @@ public class EdController : MonoBehaviour
 
     public void OnJump(InputAction.CallbackContext context)
     {
-        Debug.Log($"Jumpping: {context.performed} - Is Grounded: {controller.isGrounded}");
         bool isGrounded = controller.isGrounded || velocity.y <= 0.1f;
 
         if (context.performed && isGrounded)
         {
-            Debug.Log("Character is supposed to jump");
             velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
             isJumping = true;
             animator.SetBool("isJumping", true);
             animator.SetFloat("JumpVelocity", 1f);
         }
     }
-    /*public void OnRun(InputAction.CallbackContext context)  //Character runs and waves at the same time
-    {
-        if (context.performed)
-            isRunning = true;
-        else if (context.canceled)
-            isRunning = false;
-    }*/
     public void OnWave(InputAction.CallbackContext context)
     {
         if (context.performed)
@@ -70,7 +59,7 @@ public class EdController : MonoBehaviour
     {
         if (context.performed && !isPickingUp)
         {
-            //StartCoroutine(MoveHandToObject());
+            StartCoroutine(PickUpRoutine());
         }
     }
 
@@ -91,12 +80,6 @@ public class EdController : MonoBehaviour
 
         bool isMoving = moveInput != Vector2.zero;
         animator.SetBool("isWalking", isMoving);
-        //animator.SetBool("isWaving", isRunning && isMoving);
-
-        if (Keyboard.current.eKey.isPressed)
-            animator.SetBool("isWaving", true);
-        else
-            animator.SetBool("isWaving", false);
 
         //Jump logic
         velocity.y += gravity * Time.deltaTime;
@@ -115,5 +98,37 @@ public class EdController : MonoBehaviour
             animator.SetFloat("JumpVelocity", normalizedVelocity);
         }
     }
-    
+
+    private IEnumerator PickUpRoutine()
+    {
+        isPickingUp = true;
+
+        ikTarget.position = objectToPick.position;
+        ikTarget.rotation = objectToPick.rotation;
+
+        float timer = 0f;
+        while (timer < 1f)
+        {
+            timer += Time.deltaTime * 2f;
+            leftHandRig.weight = Mathf.Lerp(0f, 1f, timer);
+            yield return null;
+        }
+
+        yield return new WaitForSeconds(0.2f);
+
+        objectToPick.SetParent(handBone);
+        objectToPick.localPosition = Vector3.zero;
+        objectToPick.localRotation = Quaternion.identity;
+
+        timer = 0f;
+        while (timer < 1f)
+        {
+            timer += Time.deltaTime * 2f;
+            leftHandRig.weight = Mathf.Lerp(1f, 0f, timer);
+            yield return null;
+        }
+
+        isPickingUp = false;
+    }
+
 }

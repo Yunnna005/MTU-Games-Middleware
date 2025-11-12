@@ -25,7 +25,7 @@
                     "initialStateCheck": true
                 },
                 {
-                    "name": "T",
+                    "name": "E (Wave)",
                     "type": "Button",
                     "id": "182c02c7-ac16-4a67-9841-fe5596d1863a",
                     "expectedControlType": "",
@@ -34,7 +34,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "R",
+                    "name": "R (PickUp)",
                     "type": "Button",
                     "id": "cf346a87-3651-47ee-8052-b65ecd2b0847",
                     "expectedControlType": "",
@@ -128,7 +128,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "T",
+                    "action": "E (Wave)",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -139,7 +139,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "R",
+                    "action": "R (PickUp)",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

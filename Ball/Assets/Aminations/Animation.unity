@@ -216,11 +216,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3256907441173646669, guid: 87ad1484b74573d418aeea91a7f1042f, type: 3}
   m_PrefabInstance: {fileID: 8015626066673044741}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &214960361 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 1795747060087440835, guid: 87ad1484b74573d418aeea91a7f1042f, type: 3}
-  m_PrefabInstance: {fileID: 8015626066673044741}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &334086172
 GameObject:
   m_ObjectHideFlags: 0
@@ -353,6 +348,117 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1015575454}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &748699042
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 748699046}
+  - component: {fileID: 748699045}
+  - component: {fileID: 748699044}
+  - component: {fileID: 748699043}
+  m_Layer: 0
+  m_Name: Sphere
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!135 &748699043
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 748699042}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!23 &748699044
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 748699042}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 046096bddb0354e4bbe4615c192d4bde, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!33 &748699045
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 748699042}
+  m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!4 &748699046
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 748699042}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.57463, y: 1.07, z: 2.61}
+  m_LocalScale: {x: 0.19109887, y: 0.19109887, z: 0.19109887}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &892791288
 GameObject:
@@ -524,6 +630,37 @@ MonoBehaviour:
     m_HintWeight: 1
     m_MaintainTargetPositionOffset: 0
     m_MaintainTargetRotationOffset: 0
+--- !u!1 &1217903102
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1217903103}
+  m_Layer: 0
+  m_Name: Holder
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1217903103
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1217903102}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.00103, y: 0.00084, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 63315748}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1361685846 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2762058015558164032, guid: 87ad1484b74573d418aeea91a7f1042f, type: 3}
@@ -658,8 +795,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   leftHandRig: {fileID: 1452014474}
   ikTarget: {fileID: 1807657302}
-  objectToPick: {fileID: 0}
-  handBone: {fileID: 214960361}
+  objectToPick: {fileID: 748699046}
+  handBone: {fileID: 1217903103}
 --- !u!114 &1904514495
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -715,9 +852,13 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+    m_ActionId: 7f190c65-286c-4d58-b373-c2a27760846c
+    m_ActionName: 'Gameplay/AWSD[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/r]'
+  - m_PersistentCalls:
+      m_Calls:
       - m_Target: {fileID: 1904514494}
         m_TargetAssemblyTypeName: EdController, Assembly-CSharp
-        m_MethodName: OnRun
+        m_MethodName: OnWave
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -727,10 +868,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-    m_ActionId: 7f190c65-286c-4d58-b373-c2a27760846c
-    m_ActionName: 'Gameplay/AWSD[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/r]'
-  - m_PersistentCalls:
-      m_Calls: []
     m_ActionId: 182c02c7-ac16-4a67-9841-fe5596d1863a
     m_ActionName: 'Gameplay/T[/Keyboard/e]'
   - m_PersistentCalls:
@@ -888,6 +1025,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 8440185774086578725, guid: 87ad1484b74573d418aeea91a7f1042f, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1452014475}
+    - targetCorrespondingSourceObject: {fileID: 3256907441173646669, guid: 87ad1484b74573d418aeea91a7f1042f, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1217903103}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 9109164195543005343, guid: 87ad1484b74573d418aeea91a7f1042f, type: 3}
       insertIndex: -1
@@ -912,3 +1052,4 @@ SceneRoots:
   - {fileID: 334086174}
   - {fileID: 892791292}
   - {fileID: 8015626066673044741}
+  - {fileID: 748699046}
