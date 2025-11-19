@@ -343,7 +343,7 @@ Transform:
   m_GameObject: {fileID: 436806293}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.54358304, y: 0.8136191, z: -0.055742852}
+  m_LocalPosition: {x: 0.6827916, y: 0.97165096, z: -0.009847754}
   m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -361,6 +361,7 @@ GameObject:
   - component: {fileID: 748699045}
   - component: {fileID: 748699044}
   - component: {fileID: 748699043}
+  - component: {fileID: 748699047}
   m_Layer: 0
   m_Name: Sphere
   m_TagString: Untagged
@@ -454,12 +455,39 @@ Transform:
   m_GameObject: {fileID: 748699042}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.57463, y: 1.07, z: 2.61}
+  m_LocalPosition: {x: -0.57463, y: 0.471, z: 2.084}
   m_LocalScale: {x: 0.19109887, y: 0.19109887, z: 0.19109887}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!54 &748699047
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 748699042}
+  serializedVersion: 5
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &892791288
 GameObject:
   m_ObjectHideFlags: 0
@@ -622,7 +650,7 @@ MonoBehaviour:
   m_Data:
     m_Root: {fileID: 435728869}
     m_Mid: {fileID: 1361685846}
-    m_Tip: {fileID: 63315748}
+    m_Tip: {fileID: 1217903103}
     m_Target: {fileID: 1807657302}
     m_Hint: {fileID: 436806294}
     m_TargetPositionWeight: 1
@@ -729,6 +757,22 @@ MonoBehaviour:
       position: {x: 0, y: 0, z: 0}
       rotation: {x: 0, y: 0, z: 0}
     m_Visible: 1
+  - m_Transform: {fileID: 1807657302}
+    m_Style:
+      shape: {fileID: 4300000, guid: 687b70eb9c49243639f9379f6965034f, type: 2}
+      color: {r: 1, g: 0, b: 0, a: 0.5}
+      size: 0.1
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0}
+    m_Visible: 1
+  - m_Transform: {fileID: 436806294}
+    m_Style:
+      shape: {fileID: 4300000, guid: e050c2b16fe384bd994474655a4b4968, type: 2}
+      color: {r: 1, g: 0, b: 0, a: 0.5}
+      size: 0.1
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0}
+    m_Visible: 1
 --- !u!4 &1452014475
 Transform:
   m_ObjectHideFlags: 0
@@ -769,8 +813,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1807657301}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.011249964, y: -0.02882608, z: -0.96942997, w: -0.24340943}
-  m_LocalPosition: {x: 0.24317941, y: 0.68619955, z: 0.0073230863}
+  m_LocalRotation: {x: 0.0067893923, y: -0.016398605, z: -0.99882376, w: 0.045123156}
+  m_LocalPosition: {x: 0.14131117, y: 0.6893493, z: 0.0056884885}
   m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -886,6 +930,22 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: cf346a87-3651-47ee-8052-b65ecd2b0847
     m_ActionName: 'Gameplay/R[/Keyboard/r]'
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1904514494}
+        m_TargetAssemblyTypeName: EdController, Assembly-CSharp
+        m_MethodName: OnThrow
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 49fd40e9-aea7-4a0d-a2d3-83b1d52eed2b
+    m_ActionName: 'Gameplay/T (Through)[/Keyboard/t]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Gameplay

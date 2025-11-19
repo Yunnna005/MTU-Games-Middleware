@@ -14,6 +14,7 @@ public class EdController : MonoBehaviour
     [SerializeField] private Transform ikTarget;
     [SerializeField] private Transform objectToPick;
     [SerializeField] private Transform handBone;
+    private float throwForce = 2f;
 
     private float speed = 2f;
     private float jumpHeight = 4f;
@@ -23,6 +24,7 @@ public class EdController : MonoBehaviour
     Vector3 velocity;
     private bool isJumping;
     private bool isPickingUp = false;
+    private bool isHolding = false;
 
     private void Start()
     {
@@ -57,9 +59,17 @@ public class EdController : MonoBehaviour
 
     public void OnPickUp(InputAction.CallbackContext context)
     {
-        if (context.performed && !isPickingUp)
+        if (context.performed && !isPickingUp && !isHolding)
         {
             StartCoroutine(PickUpRoutine());
+        }
+    }
+
+    public void OnThrow(InputAction.CallbackContext context)
+    {
+        if (context.performed && isHolding)
+        {
+            ThrowObject();
         }
     }
 
@@ -115,6 +125,8 @@ public class EdController : MonoBehaviour
         }
 
         yield return new WaitForSeconds(0.2f);
+        Rigidbody rb = objectToPick.GetComponent<Rigidbody>();
+        if (rb != null) rb.isKinematic = true;
 
         objectToPick.SetParent(handBone);
         objectToPick.localPosition = Vector3.zero;
@@ -129,6 +141,19 @@ public class EdController : MonoBehaviour
         }
 
         isPickingUp = false;
+        isHolding = true;
+    }
+
+    private void ThrowObject()
+    {
+        objectToPick.SetParent(null);
+        Rigidbody rb = objectToPick.GetComponent<Rigidbody>();
+        if (rb != null)
+        {
+            rb.isKinematic = false;
+            rb.AddForce(transform.forward * throwForce, ForceMode.Impulse);
+        }
+        isHolding = false;
     }
 
 }
