@@ -25,6 +25,7 @@ public class EdController : MonoBehaviour
     private bool isJumping;
     private bool isPickingUp = false;
     private bool isHolding = false;
+    private float maxReachDistance = 1.5f;
 
     private void Start()
     {
@@ -61,7 +62,15 @@ public class EdController : MonoBehaviour
     {
         if (context.performed && !isPickingUp && !isHolding)
         {
-            StartCoroutine(PickUpRoutine());
+            float distanceToObject = Vector3.Distance(transform.position, objectToPick.position);
+            if (distanceToObject <= maxReachDistance)
+            {
+                StartCoroutine(PickUpRoutine());
+            }
+            else
+            {
+                Debug.Log("Object is too far to pick up.");
+            }
         }
     }
 
