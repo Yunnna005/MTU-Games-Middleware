@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Animations.Rigging;
+using UnityEngine.Audio;
 using UnityEngine.InputSystem;
 using static UnityEngine.GraphicsBuffer;
 
@@ -27,11 +28,15 @@ public class EdController : MonoBehaviour
     private bool isHolding = false;
     private float maxReachDistance = 1.5f;
 
+    private AudioSource footstepAudioSource;
+
     private void Start()
     {
         animator = GetComponent<Animator>();
         controller = GetComponent<CharacterController>();
         animator.SetBool("isWaving", false);
+        footstepAudioSource = GetComponent<AudioSource>();
+
     }
     public void OnMove(InputAction.CallbackContext context)
     {
@@ -163,6 +168,12 @@ public class EdController : MonoBehaviour
             rb.AddForce(transform.forward * throwForce, ForceMode.Impulse);
         }
         isHolding = false;
+    }
+
+    public void Steps()
+    {
+        Debug.Log("Step sound triggered!");
+        footstepAudioSource.Play();
     }
 
 }
