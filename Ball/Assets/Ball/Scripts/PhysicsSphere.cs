@@ -79,6 +79,8 @@ public class PhysicsSphere : MonoBehaviour, IPhysical
             float speed = (totalDistance) / timeInterval;
             float ToI = -D0 / speed;
 
+
+
             // Resollve vel at ToI
             Vector3 velAtToI = previousVelocity + acceleration * ToI;
             Vector3 posAtToI = previousPosition + velAtToI * ToI;
