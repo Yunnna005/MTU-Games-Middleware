@@ -9,7 +9,7 @@ public class PhysicsManager : MonoBehaviour
 
     void Start()
     {
-        allObjects.Clear();
+        /*allObjects.Clear();
 
         var allMonobehaviours = FindObjectsOfType<MonoBehaviour>();
 
@@ -19,12 +19,21 @@ public class PhysicsManager : MonoBehaviour
             {
                 allObjects.Add(physical);
             }
-        }
+        }*/
     }
 
     private void Update()
     {
-        for(int i = 0; i< allObjects.Count-1; i++)
+        var allMonobehaviours = FindObjectsOfType<MonoBehaviour>();
+        foreach (var mb in allMonobehaviours)
+        {
+            if (mb is IPhysical physical && !allObjects.Contains(physical))
+            {
+                allObjects.Add(physical);
+            }
+        }
+
+        for (int i = 0; i< allObjects.Count-1; i++)
         {
             for (int j = i+1; j< allObjects.Count; j++)
             {

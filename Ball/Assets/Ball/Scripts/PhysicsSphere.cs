@@ -7,7 +7,7 @@ using UnityEngine;
 public class PhysicsSphere : MonoBehaviour, IPhysical
 {
 
-    private Vector3 acceleration, velocity;
+    public Vector3 acceleration, velocity;
     private const float gravity = 9.81f;
     float CoR = 0.5f;
     private Vector3 previousPosition;
