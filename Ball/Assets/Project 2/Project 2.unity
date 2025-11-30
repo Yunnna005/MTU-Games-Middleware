@@ -20,19 +20,19 @@ RenderSettings:
   m_FogDensity: 0.01
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
-  m_AmbientSkyColor: {r: 0.212, g: 0.227, b: 0.259, a: 1}
+  m_AmbientSkyColor: {r: 0.00008512382, g: 0.00008512382, b: 0.00008512382, a: 1}
   m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
-  m_AmbientIntensity: 1
+  m_AmbientIntensity: 1.29
   m_AmbientMode: 0
-  m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
+  m_SubtractiveShadowColor: {r: 0.5018867, g: 0.5018867, b: 0.5018867, a: 1}
   m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
   m_HaloTexture: {fileID: 0}
   m_SpotCookie: {fileID: 10001, guid: 0000000000000000e000000000000000, type: 0}
-  m_DefaultReflectionMode: 0
+  m_DefaultReflectionMode: 1
   m_DefaultReflectionResolution: 128
   m_ReflectionBounces: 1
   m_ReflectionIntensity: 1
@@ -93,7 +93,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 20201, guid: 0000000000000000f000000000000000, type: 0}
+  m_LightingDataAsset: {fileID: 112000000, guid: d53ed01bc1a69114f9ceb2580b42ee17, type: 2}
   m_LightingSettings: {fileID: 0}
 --- !u!196 &4
 NavMeshSettings:
@@ -148,10 +148,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d83a253f7a58d284e9ce156fdb736233, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DungeonGeneration
-  size: {x: 7, y: 7}
+  size: {x: 10, y: 10}
   startPos: 0
-  room: {fileID: 1225369992578275515, guid: f349ecdb798c0bb4a9428dbee984f06a, type: 3}
-  offset: {x: 6, y: 6}
+  rooms:
+  - room: {fileID: 1225369992578275515, guid: 12344b7e8f37a694db76e7cd90bbe4d3, type: 3}
+    minPos: {x: 0, y: 0}
+    maxPos: {x: 5, y: 5}
+    obligatory: 0
+  - room: {fileID: 1225369992578275515, guid: 2b49459108490ca4faf591d046e84e52, type: 3}
+    minPos: {x: 0, y: 0}
+    maxPos: {x: 0, y: 0}
+    obligatory: 1
+  - room: {fileID: 1225369992578275515, guid: 99625bc77dea8e1499cdea5aacb9edd8, type: 3}
+    minPos: {x: 5, y: 5}
+    maxPos: {x: 10, y: 10}
+    obligatory: 0
+  - room: {fileID: 1225369992578275515, guid: 53044a676e1c92a48a70667f951cf017, type: 3}
+    minPos: {x: 8, y: 8}
+    maxPos: {x: 10, y: 10}
+    obligatory: 0
+  - room: {fileID: 1225369992578275515, guid: f349ecdb798c0bb4a9428dbee984f06a, type: 3}
+    minPos: {x: 2, y: 2}
+    maxPos: {x: 8, y: 8}
+    obligatory: 1
+  offset: {x: 8, y: 8}
 --- !u!4 &23654340
 Transform:
   m_ObjectHideFlags: 0

@@ -1,6 +1,7 @@
 using Unity.VisualScripting;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Runtime.InteropServices.WindowsRuntime;
 
 public class DungeonGeneration : MonoBehaviour
 {
@@ -10,9 +11,31 @@ public class DungeonGeneration : MonoBehaviour
         public bool[] status = new bool[4]; // Up, Down, Left, Right
     }
 
-    public Vector2 size;
+    [System.Serializable]
+    public class Rule
+    {
+        public GameObject room;
+        public Vector2Int minPos;
+        public Vector2Int maxPos;
+
+        public bool obligatory;
+
+        public int Probability(int x, int y)
+        {
+            //0 - cannot spavn , 1 - can spawn, 2 - must spawn
+            if(x >= minPos.x && x <= maxPos.x && y >= minPos.y && y <= maxPos.y)
+            {
+                return obligatory ? 2 : 1;
+            }
+
+
+            return 0;
+        }
+    }
+
+    public Vector2Int size;
     public int startPos = 0;
-    public GameObject room;
+    public Rule[] rooms;
     public Vector2 offset;
 
     List<Cell> board;
@@ -34,10 +57,38 @@ public class DungeonGeneration : MonoBehaviour
             for (int j = 0; j < size.y; j++)
             {
 
-                Cell currentCell = board[Mathf.FloorToInt(i + j * size.x)];
+                Cell currentCell = board[i + j * size.x];
                 if (currentCell.visited)
                 {
-                    var newRoom = Instantiate(room, new Vector3(i * offset.x, 0, -j * offset.y), Quaternion.identity, transform).GetComponent<RoomBahaviour>();
+                    int randomRoom = -1;
+                    List<int> possibleRooms = new List<int>();
+
+                    for (int r = 0; r < rooms.Length; r++)
+                    {
+                        int prob = rooms[r].Probability(i, j);
+                        if (prob == 2)
+                        {
+                            randomRoom = r;
+                            break;
+                        }
+                        else if (prob == 1)
+                        {
+                            possibleRooms.Add(r);
+                        }
+                    }
+
+                    if (randomRoom == -1)
+                    {
+                        if (possibleRooms.Count > 0)
+                        {
+                            randomRoom = possibleRooms[Random.Range(0, possibleRooms.Count)];
+                        }
+                        else
+                        {
+                            randomRoom = 0;
+                        }
+                    }
+                    var newRoom = Instantiate(rooms[randomRoom].room, new Vector3(i * offset.x, 0, -j * offset.y), Quaternion.identity, transform).GetComponent<RoomBahaviour>();
                     newRoom.RoomUpdate(board[Mathf.FloorToInt(i + j * size.x)].status);
 
                     newRoom.name += " " + i + "-" + j;
