@@ -419,9 +419,6 @@ PrefabInstance:
       addedObject: {fileID: 5590841522940037443}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: de76d67d0ab88dc439b10b32370775ea, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 8352044667602067501}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: de76d67d0ab88dc439b10b32370775ea, type: 3}
-      insertIndex: -1
       addedObject: {fileID: 3474090435284838348}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: de76d67d0ab88dc439b10b32370775ea, type: 3}
       insertIndex: -1
@@ -429,6 +426,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: de76d67d0ab88dc439b10b32370775ea, type: 3}
       insertIndex: -1
       addedObject: {fileID: 4367997032092527664}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: de76d67d0ab88dc439b10b32370775ea, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: -4654052886950157391}
     - targetCorrespondingSourceObject: {fileID: 3440663850312004499, guid: de76d67d0ab88dc439b10b32370775ea, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1168332465689241202}
@@ -519,116 +519,6 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0.9, z: 0}
---- !u!114 &8352044667602067501
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9109164195543005343}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Unity.InputSystem::UnityEngine.InputSystem.PlayerInput
-  m_Actions: {fileID: -944628639613478452, guid: 47958714efc1ea645b868b1dc72d80ad, type: 3}
-  m_NotificationBehavior: 2
-  m_UIInputModule: {fileID: 0}
-  m_DeviceLostEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_DeviceRegainedEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_ControlsChangedEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_ActionEvents:
-  - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 4080885099844355283}
-        m_TargetAssemblyTypeName: EdController, Assembly-CSharp
-        m_MethodName: OnJump
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_ActionId: 4237c3ee-95ac-427e-b95b-db41adee9063
-    m_ActionName: 'Gameplay/Jump[/Keyboard/space]'
-  - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 4080885099844355283}
-        m_TargetAssemblyTypeName: EdController, Assembly-CSharp
-        m_MethodName: OnMove
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_ActionId: 7f190c65-286c-4d58-b373-c2a27760846c
-    m_ActionName: 'Gameplay/AWSD[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/r]'
-  - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 4080885099844355283}
-        m_TargetAssemblyTypeName: EdController, Assembly-CSharp
-        m_MethodName: OnWave
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_ActionId: 182c02c7-ac16-4a67-9841-fe5596d1863a
-    m_ActionName: 'Gameplay/T[/Keyboard/e]'
-  - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 4080885099844355283}
-        m_TargetAssemblyTypeName: EdController, Assembly-CSharp
-        m_MethodName: OnPickUp
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_ActionId: cf346a87-3651-47ee-8052-b65ecd2b0847
-    m_ActionName: 'Gameplay/R[/Keyboard/r]'
-  - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 4080885099844355283}
-        m_TargetAssemblyTypeName: EdController, Assembly-CSharp
-        m_MethodName: OnThrow
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_ActionId: 49fd40e9-aea7-4a0d-a2d3-83b1d52eed2b
-    m_ActionName: 'Gameplay/T (Through)[/Keyboard/t]'
-  m_NeverAutoSwitchControlSchemes: 0
-  m_DefaultControlScheme: 
-  m_DefaultActionMap: Gameplay
-  m_SplitScreenIndex: -1
-  m_Camera: {fileID: 4421126975577010199}
 --- !u!114 &3474090435284838348
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -759,3 +649,117 @@ Animation:
   m_AnimatePhysics: 0
   m_UpdateMode: 0
   m_CullingType: 0
+--- !u!114 &-4654052886950157391
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9109164195543005343}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.InputSystem::UnityEngine.InputSystem.PlayerInput
+  m_Actions: {fileID: -944628639613478452, guid: 47958714efc1ea645b868b1dc72d80ad, type: 3}
+  m_NotificationBehavior: 2
+  m_UIInputModule: {fileID: 0}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ActionEvents:
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4080885099844355283}
+        m_TargetAssemblyTypeName: EdController, Assembly-CSharp
+        m_MethodName: OnJump
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: bc8f1519-043b-4eea-95bc-41b8ce38ac54
+    m_ActionName: 'Gameplay/Jump[/Keyboard/space]'
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4080885099844355283}
+        m_TargetAssemblyTypeName: EdController, Assembly-CSharp
+        m_MethodName: OnAWSD
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: b6703dd9-6687-4697-b6ba-71bc0ee0aff0
+    m_ActionName: 'Gameplay/AWSD[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d,/Keyboard/upArrow,/Keyboard/downArrow,/Keyboard/leftArrow,/Keyboard/rightArrow]'
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4080885099844355283}
+        m_TargetAssemblyTypeName: EdController, Assembly-CSharp
+        m_MethodName: OnEWave
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: ca0da6ec-e6df-4b94-bc00-04420488898c
+    m_ActionName: 'Gameplay/E (Wave)[/Keyboard/e,/Keyboard/m]'
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4080885099844355283}
+        m_TargetAssemblyTypeName: EdController, Assembly-CSharp
+        m_MethodName: OnRPickUp
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: db4d5e6d-df64-4689-9811-ee258e760d59
+    m_ActionName: 'Gameplay/R (PickUp)[/Keyboard/r,/Keyboard/n]'
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4080885099844355283}
+        m_TargetAssemblyTypeName: EdController, Assembly-CSharp
+        m_MethodName: OnTThrow
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 873a4776-c0c5-43b8-8497-ec7e3e55a5c1
+    m_ActionName: 'Gameplay/T (Through)[/Keyboard/t,/Keyboard/b]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 42fd2236-e610-4ccb-b8b0-aa8839c00c5e
+    m_ActionName: 'Gameplay/Join Players[/Keyboard/leftShift,/Keyboard/rightShift]'
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: 
+  m_DefaultActionMap: Gameplay
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 4421126975577010199}

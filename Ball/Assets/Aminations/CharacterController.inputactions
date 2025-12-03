@@ -4,12 +4,12 @@
     "maps": [
         {
             "name": "Gameplay",
-            "id": "5d604502-b275-40be-ada6-e7baf1b65fbc",
+            "id": "b8e33c09-bc7f-42af-863a-8748abe711af",
             "actions": [
                 {
                     "name": "Jump",
                     "type": "Button",
-                    "id": "4237c3ee-95ac-427e-b95b-db41adee9063",
+                    "id": "bc8f1519-043b-4eea-95bc-41b8ce38ac54",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
@@ -18,7 +18,7 @@
                 {
                     "name": "AWSD",
                     "type": "Value",
-                    "id": "7f190c65-286c-4d58-b373-c2a27760846c",
+                    "id": "b6703dd9-6687-4697-b6ba-71bc0ee0aff0",
                     "expectedControlType": "Vector2",
                     "processors": "",
                     "interactions": "",
@@ -27,25 +27,34 @@
                 {
                     "name": "E (Wave)",
                     "type": "Button",
-                    "id": "182c02c7-ac16-4a67-9841-fe5596d1863a",
+                    "id": "ca0da6ec-e6df-4b94-bc00-04420488898c",
                     "expectedControlType": "",
                     "processors": "",
-                    "interactions": "",
+                    "interactions": "Press(behavior=2)",
                     "initialStateCheck": false
                 },
                 {
                     "name": "R (PickUp)",
                     "type": "Button",
-                    "id": "cf346a87-3651-47ee-8052-b65ecd2b0847",
+                    "id": "db4d5e6d-df64-4689-9811-ee258e760d59",
                     "expectedControlType": "",
                     "processors": "",
-                    "interactions": "",
+                    "interactions": "Press(behavior=2)",
                     "initialStateCheck": false
                 },
                 {
                     "name": "T (Through)",
                     "type": "Button",
-                    "id": "49fd40e9-aea7-4a0d-a2d3-83b1d52eed2b",
+                    "id": "873a4776-c0c5-43b8-8497-ec7e3e55a5c1",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "Press(behavior=2)",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Join Players",
+                    "type": "Button",
+                    "id": "42fd2236-e610-4ccb-b8b0-aa8839c00c5e",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
@@ -55,18 +64,18 @@
             "bindings": [
                 {
                     "name": "",
-                    "id": "e2920e53-3e35-4268-89dd-2b99e3110560",
+                    "id": "86b9e227-f96c-497c-8312-70cbeda3ee8a",
                     "path": "<Keyboard>/space",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": ";Player1",
                     "action": "Jump",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
                 {
                     "name": "",
-                    "id": "00fa233b-9f86-4890-974e-69174b71063d",
+                    "id": "446ce31b-ef0e-4016-b2d9-68779792651c",
                     "path": "",
                     "interactions": "",
                     "processors": "",
@@ -77,9 +86,9 @@
                 },
                 {
                     "name": "2D Vector",
-                    "id": "fca6fdef-4e02-4e67-8c9a-9cf1b1863895",
+                    "id": "ecdea671-0528-4c5a-8110-dc3e71cfb5d6",
                     "path": "2DVector",
-                    "interactions": "",
+                    "interactions": "Press(behavior=2)",
                     "processors": "",
                     "groups": "",
                     "action": "AWSD",
@@ -88,83 +97,216 @@
                 },
                 {
                     "name": "up",
-                    "id": "7ccddb4e-9cd4-4bd3-9d56-b7ef5d74d86d",
-                    "path": "<Keyboard>/#(W)",
+                    "id": "7d701892-e0bb-47c5-b3e3-cb5f7d336e37",
+                    "path": "<Keyboard>/w",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": ";Player1",
                     "action": "AWSD",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
                 {
                     "name": "down",
-                    "id": "820c0594-830c-4779-9001-af55a0cb22a3",
-                    "path": "<Keyboard>/#(S)",
+                    "id": "879592eb-9602-434b-a91a-4e321a453581",
+                    "path": "<Keyboard>/s",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": ";Player1",
                     "action": "AWSD",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
                 {
                     "name": "left",
-                    "id": "808161f3-232f-4af5-8e7f-4f247a9e4a5b",
-                    "path": "<Keyboard>/#(A)",
+                    "id": "f6af322f-c45c-4e36-b0ec-3860f3c84b1a",
+                    "path": "<Keyboard>/a",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": ";Player1",
                     "action": "AWSD",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
                 {
                     "name": "right",
-                    "id": "18061c42-ee51-4138-b0b9-b6d08966f715",
+                    "id": "25191798-2ae5-44cb-aa00-b612c76cf07b",
                     "path": "<Keyboard>/d",
                     "interactions": "",
                     "processors": "",
+                    "groups": ";Player1",
+                    "action": "AWSD",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "2D Vector",
+                    "id": "01c74d3f-e291-4827-9cae-3e1a01688fd3",
+                    "path": "2DVector",
+                    "interactions": "Press(behavior=2)",
+                    "processors": "",
                     "groups": "",
+                    "action": "AWSD",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "up",
+                    "id": "a3d1da66-1c5e-43bb-b85e-ef3fc48f312a",
+                    "path": "<Keyboard>/upArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Player 2",
+                    "action": "AWSD",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "down",
+                    "id": "71354625-3a9f-48f6-8a3a-92869d80639b",
+                    "path": "<Keyboard>/downArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Player 2",
+                    "action": "AWSD",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "left",
+                    "id": "972c3604-077d-40fd-a9cb-2d26f49d4f8c",
+                    "path": "<Keyboard>/leftArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Player 2",
+                    "action": "AWSD",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "right",
+                    "id": "5be81106-e7c6-469f-b442-b998a502f0ab",
+                    "path": "<Keyboard>/rightArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Player 2",
                     "action": "AWSD",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
                 {
                     "name": "",
-                    "id": "30fe2ae8-ec76-4c78-aa58-9de8af16a89b",
+                    "id": "01f4994d-546f-4d7e-a1e6-b89ecee7ae01",
                     "path": "<Keyboard>/e",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": ";Player1",
                     "action": "E (Wave)",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
                 {
                     "name": "",
-                    "id": "3ea81aa9-d669-4b18-aa5c-fe52bb2c5a11",
+                    "id": "2da1e596-922c-4a17-99a8-3d0fd093fffb",
+                    "path": "<Keyboard>/m",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Player 2",
+                    "action": "E (Wave)",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "cf1056c8-c97b-4669-a927-de4e6d030fde",
                     "path": "<Keyboard>/r",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": ";Player1",
                     "action": "R (PickUp)",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
                 {
                     "name": "",
-                    "id": "ec16a592-fb1e-4fbc-b4e1-179b4b8ea11a",
+                    "id": "c0d87f1c-96ac-4b4e-b67f-173a4c341ee6",
+                    "path": "<Keyboard>/n",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Player 2",
+                    "action": "R (PickUp)",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "fe0523fe-af9d-439b-b896-d87855cab4f5",
                     "path": "<Keyboard>/t",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": ";Player1",
                     "action": "T (Through)",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "e1a1c646-2b21-44f0-b58e-a32451796310",
+                    "path": "<Keyboard>/b",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Player 2",
+                    "action": "T (Through)",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "fc4457d7-4be7-4ef1-8501-069c4ce7fe78",
+                    "path": "<Keyboard>/leftShift",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Player1",
+                    "action": "Join Players",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "375caf79-9216-4837-bcf7-e5eb6eef2cc0",
+                    "path": "<Keyboard>/rightShift",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Player 2",
+                    "action": "Join Players",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
             ]
         }
     ],
-    "controlSchemes": []
+    "controlSchemes": [
+        {
+            "name": "Player1",
+            "bindingGroup": "Player1",
+            "devices": [
+                {
+                    "devicePath": "<Keyboard>",
+                    "isOptional": false,
+                    "isOR": false
+                }
+            ]
+        },
+        {
+            "name": "Player 2",
+            "bindingGroup": "Player 2",
+            "devices": [
+                {
+                    "devicePath": "<Keyboard>",
+                    "isOptional": false,
+                    "isOR": false
+                }
+            ]
+        }
+    ]
 }

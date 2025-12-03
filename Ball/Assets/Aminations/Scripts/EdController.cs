@@ -28,6 +28,8 @@ public class EdController : MonoBehaviour
     private bool isHolding = false;
     private float maxReachDistance = 1.5f;
 
+    BallController heldBall;
+
     private AudioSource footstepAudioSource;
 
     private void Start()
@@ -38,7 +40,7 @@ public class EdController : MonoBehaviour
         footstepAudioSource = GetComponent<AudioSource>();
 
     }
-    public void OnMove(InputAction.CallbackContext context)
+    public void OnAWSD(InputAction.CallbackContext context)
     {
         moveInput = context.ReadValue<Vector2>();
     }
@@ -55,7 +57,7 @@ public class EdController : MonoBehaviour
             animator.SetFloat("JumpVelocity", 1f);
         }
     }
-    public void OnWave(InputAction.CallbackContext context)
+    public void OnEWave(InputAction.CallbackContext context)
     {
         if (context.performed)
             animator.SetBool("isWaving", true);
@@ -63,28 +65,36 @@ public class EdController : MonoBehaviour
             animator.SetBool("isWaving", false);
     }
 
-    public void OnPickUp(InputAction.CallbackContext context)
+    public void OnRPickUp(InputAction.CallbackContext context)
     {
-        if (context.performed && !isPickingUp && !isHolding)
+        if (!context.performed) return;
+        if (isPickingUp || isHolding) return;
+
+        BallController nearest = FindNearestFreeBall();
+        if (nearest == null)
         {
-            float distanceToObject = Vector3.Distance(transform.position, objectToPick.position);
-            if (distanceToObject <= maxReachDistance)
-            {
-                StartCoroutine(PickUpRoutine());
-            }
-            else
-            {
-                Debug.Log("Object is too far to pick up.");
-            }
+            Debug.Log("No reachable ball");
+            return;
         }
+
+        float dist = Vector3.Distance(transform.position, nearest.transform.position);
+        if (dist > maxReachDistance)
+        {
+            Debug.Log("Ball out of reach");
+            return;
+        }
+
+        StartCoroutine(PickUpRoutine(nearest));
     }
 
-    public void OnThrow(InputAction.CallbackContext context)
+    public void OnTThrow(InputAction.CallbackContext context)
     {
-        if (context.performed && isHolding)
-        {
-            ThrowObject();
-        }
+        if (!context.performed) return;
+        if (!isHolding || heldBall == null) return;
+
+        heldBall.Throw(transform.forward, throwForce);
+        isHolding = false;
+        heldBall = null;
     }
 
     void Update()
@@ -123,12 +133,12 @@ public class EdController : MonoBehaviour
         }
     }
 
-    private IEnumerator PickUpRoutine()
+    private IEnumerator PickUpRoutine(BallController ball)
     {
         isPickingUp = true;
 
-        ikTarget.position = objectToPick.position;
-        ikTarget.rotation = objectToPick.rotation;
+        ikTarget.position = ball.transform.position;
+        ikTarget.rotation = ball.transform.rotation;
 
         float timer = 0f;
         while (timer < 1f)
@@ -138,13 +148,14 @@ public class EdController : MonoBehaviour
             yield return null;
         }
 
-        yield return new WaitForSeconds(0.2f);
-        Rigidbody rb = objectToPick.GetComponent<Rigidbody>();
-        if (rb != null) rb.isKinematic = true;
+        yield return new WaitForSeconds(0.1f);
 
-        objectToPick.SetParent(handBone);
-        objectToPick.localPosition = Vector3.zero;
-        objectToPick.localRotation = Quaternion.identity;
+        bool picked = ball.TryPickUp(transform, handBone);
+        if (picked)
+        {
+            isHolding = true;
+            heldBall = ball;
+        }
 
         timer = 0f;
         while (timer < 1f)
@@ -155,19 +166,27 @@ public class EdController : MonoBehaviour
         }
 
         isPickingUp = false;
-        isHolding = true;
     }
-
-    private void ThrowObject()
+    BallController FindNearestFreeBall()
     {
-        objectToPick.SetParent(null);
-        Rigidbody rb = objectToPick.GetComponent<Rigidbody>();
-        if (rb != null)
+        // fetch all Ball components in the scene.
+        BallController[] balls = FindObjectsOfType<BallController>();
+        BallController nearest = null;
+        float bestDist = float.MaxValue;
+
+        foreach (BallController b in balls)
         {
-            rb.isKinematic = false;
-            rb.AddForce(transform.forward * throwForce, ForceMode.Impulse);
+            if (b.IsHeld) continue;
+            float d = Vector3.Distance(transform.position, b.transform.position);
+            if (d < bestDist)
+            {
+                bestDist = d;
+                nearest = b;
+            }
         }
-        isHolding = false;
+
+        if (bestDist <= maxReachDistance) return nearest;
+        return null;
     }
 
     public void Steps()
